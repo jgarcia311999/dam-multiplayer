@@ -1,14 +1,22 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { buscarSalaPorCodigo } from "../utils/firebaseTest";
 
 const Home = () => {
   const [roomCode, setRoomCode] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleJoin = (e) => {
+  const handleJoin = async (e) => {
     e.preventDefault();
+    setError("");
     if (roomCode.trim() !== "") {
-      navigate(`/room/${roomCode}`);
+      const sala = await buscarSalaPorCodigo(roomCode.trim());
+      if (sala) {
+        navigate(`/room/${roomCode.trim()}`);
+      } else {
+        setError("No existe ninguna sala con ese código.");
+      }
     }
   };
 
@@ -40,6 +48,9 @@ const Home = () => {
           Entrar en la sala
         </button>
       </form>
+      {error && (
+        <div style={{ color: "red", marginTop: 20 }}>{error}</div>
+      )}
     </div>
   );
 };
