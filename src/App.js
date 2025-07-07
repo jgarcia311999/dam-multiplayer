@@ -1,19 +1,18 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import CreateRoom from "./pages/CreateRoom";
-import JoinRoom from "./pages/JoinRoom";
-import Room from "./pages/Room";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import JoinGame from './pages/JoinGame';
+import GameRoom from './pages/GameRoom';
 
-const App = () => (
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/create" element={<CreateRoom />} />
-      <Route path="/join" element={<JoinRoom />} />
-      <Route path="/room/:roomCode" element={<Room />} />
-    </Routes>
-  </BrowserRouter>
-);
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<JoinGame />} />
+        <Route path="/join" element={<JoinGame />} />
+        <Route path="/game/:sala" element={<GameRoom />} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default App;
