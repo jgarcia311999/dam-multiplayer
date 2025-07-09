@@ -100,6 +100,13 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     padding: '20px',
+    overflow: 'hidden',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    boxSizing: 'border-box',
   },
   card: {
     width: '100%',

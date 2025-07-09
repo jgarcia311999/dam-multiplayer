@@ -104,12 +104,14 @@ const GameRoom = () => {
 const styles = {
   wrapper: {
     display: 'flex',
-    height: '100vh',
+    minHeight: '100vh',
     width: '100vw',
     backgroundColor: '#121212',
     justifyContent: 'center',
     alignItems: 'center',
     padding: '20px',
+    overflowX: 'hidden',
+    boxSizing: 'border-box',
   },
   card: {
     width: '100%',
